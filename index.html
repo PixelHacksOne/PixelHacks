@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>PixelHacks VIP Store</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Orbitron', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: 20px;
+      background-color: #111;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .saldo {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      background-color: #000;
+      border: 1px solid #0f0;
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: white;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      color: #0f0;
+      margin-top: 100px;
+      text-shadow: 0 0 10px #0f0;
+    }
+
+    nav {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: #0f0;
+      text-decoration: none;
+      font-weight: bold;
+      text-shadow: 0 0 5px #0f0;
+    }
+
+    .pack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+
+    .pack {
+      border: 2px solid #0f0;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .pack h2 {
+      color: #00ffff;
+      text-shadow: 0 0 5px #00ffff;
+      margin-bottom: 5px;
+    }
+
+    .pack p {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+
+    .pack span {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    .pack button {
+      background-color: #00ff99;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .recarga-section {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .recarga-section h2, .recarga-section h3 {
+      color: #fff;
+      text-shadow: 0 0 5px #fff;
+    }
+
+    .recarga-section h3 {
+      color: orange;
+    }
+
+    .qr-code {
+      background-color: orange;
+      width: 200px;
+      height: 200px;
+      margin: 20px auto;
+    }
+
+    .wallet {
+      color: #fff;
+      word-break: break-word;
+      margin-bottom: 10px;
+    }
+
+    #verificarBtn {
+      background-color: #222;
+      border: 1px solid #f00;
+      color: #f00;
+      padding: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #mensajeVerificacion {
+      margin-top: 10px;
+      color: red;
+      display: none;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      color: red;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      font-weight: bold;
+      z-index: 1000;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #666;
+    }
+
+    footer a {
+      color: #00f2ff;
+      text-decoration: none;
+    }
+
+    .error-message {
+      background-color: red;
+      color: white;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      display: none;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">PixelHack VIP Store</div>
+  <div class="saldo">Saldo: $0.00</div>
+</header>
+
+<h1>Bienvenido a PixelHacks</h1>
+
+<nav>
+  <a href="#packs">Packs Regulares</a>
+  <a href="#premium">Hacks Premium</a>
+  <a href="#soporte">Soporte</a>
+</nav>
+
+<section id="packs">
+  <h2 style="text-align:center; margin-top:40px">Packs Regulares</h2>
+  <div class="pack-grid">
+    <div class="pack">
+      <h2>Kill Aura</h2>
+      <p>Ataca automáticamente enemigos. Compatible con todas las versiones.</p>
+      <span>$1</span>
+      <button onclick="mostrarError()">Agregar</button>
+    </div>
+    <div class="pack">
+      <h2>X-Ray</h2>
+      <p>Encuentra minerales a través de bloques. Java y Bedrock.</p>
+      <span>$1</span>
+      <button onclick="mostrarError()">Agregar</button>
+    </div>
+    <div class="pack">
+      <h2>ClickStorm PRO</h2>
+      <p>Autoclick con detección anti-kick. Todas las versiones.</p>
+      <span>$1</span>
+      <button onclick="mostrarError()">Agregar</button>
+    </div>
+    <div class="pack">
+      <h2>SpeedBoost</h2>
+      <p>Velocidad ilimitada sin detección. Java y Bedrock.</p>
+      <span>$1</span>
+      <button onclick="mostrarError()">Agregar</button>
+    </div>
+    <div class="pack">
+      <h2>AutoBuild</h2>
+      <p>Construye estructuras automáticamente. Compatible con todo.</p>
+      <span>$1</span>
+      <button onclick="mostrarError()">Agregar</button>
+    </div>
+    <div class="pack">
+      <h2>InvisHack</h2>
+      <p>Invisibilidad permanente sin efectos visibles. Crossplay.</p>
+      <span>$1</span>
+      <button onclick="mostrarError()">Agregar</button>
+    </div>
+  </div>
+</section>
+
+<section id="soporte" class="recarga-section">
+  <h2>Soporte y Recargas</h2>
+  <h3>Recarga con Bitcoin</h3>
+  <p>Escanea el código QR con tu billetera BTC para recargar saldo:</p>
+  <img src="https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=bc1q8d2phc0a2azxh2q7m56fjyn2jde0qdz8sjx5aj" alt="Código QR" class="qr-code"/>
+  <p class="wallet">Wallet: bc1q8d2phc0a2azxh2q7m56fjyn2jde0qdz8sjx5aj</p>
+  <button id="verificarBtn" onclick="verificarPago()">Verificar Pago</button>
+  <div id="mensajeVerificacion">Error: No se detectó ningún envío a la wallet.</div>
+</section>
+
+<div class="overlay" id="overlay">Error: No tienes saldo suficiente. Recarga e intenta de nuevo.</div>
+
+<div id="errorMessage" class="error-message">No tienes saldo suficiente para agregar este pack al carrito.</div>
+
+<footer>
+  © 2025 XConnetPacks. Todos los derechos reservados. Contacto directo en Telegram: <a href="https://t.me/XConnetPacks">@XConnetPacks</a>
+</footer>
+
+<script>
+  function verificarPago() {
+    const mensaje = document.getElementById('mensajeVerificacion');
+    mensaje.style.display = 'none';
+    document.getElementById('verificarBtn').innerText = 'Verificando...';
+    setTimeout(() => {
+      mensaje.style.display = 'block';
+      document.getElementById('verificarBtn').innerText = 'Verificar Pago';
+    }, 10000);
+  }
+
+  function mostrarError() {
+    const overlay = document.getElementById('overlay');
+    const errorMessage = document.getElementById('errorMessage');
+    overlay.style.display = 'flex';
+    errorMessage.style.display = 'block';
+    setTimeout(() => {
+      overlay.style.display = 'none';
+      errorMessage.style.display = 'none';
+    }, 4000);
+  }
+</script>
+
+</body>
+</html>
